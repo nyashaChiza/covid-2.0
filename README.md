@@ -9,7 +9,7 @@ The system has 3 main features
   1.Go to your cmd
   2. Enter pip install -r requirements.txt
   3. Navigate to the project folder
-  4. Enter py app.py
+  4. Enter py app.py in the cmd
   5. Go to the http://localhost:5000/ on your browser 
 
 
