@@ -1,0 +1,95 @@
+{% extends "layouts/layout.html" %}
+{% block content %}
+    <!-- Header -->
+    <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url({{url_for('static',filename='assets/img/theme/profile-cover.jpg')}}); background-size: cover; background-position: center top;">
+      <!-- Mask -->
+      <span class="mask bg-gradient-default opacity-8"></span>
+      <!-- Header container -->
+      <div class="container-fluid d-flex align-items-center">
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <h1 class="display-1 text-white">Covid  Self Assessment Results</h1>
+               </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+      <div class="row">
+
+        <div class="col-xl-10 order-xl-1">
+          <div class="card">
+            <div class="card-header">
+              <div class="row align-items-center">
+                <div class="col-4 text-right">
+                  <a href="#!" class="btn btn-sm btn-primary">Test Results</a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <p class="h4  bold">
+                {{ data[1]}}
+                </p>
+                <hr class="my-4">
+                <div class="col-8 text-right">
+              <h1>  Health Institutes Near You</h1>
+                </div>
+                {% if data[0] > 2 %}
+                      <!-- Dark table -->
+      <div class="row">
+        <div class="col">
+          <div class="card bg-default shadow">
+            <div class="card-header bg-transparent border-0">
+              <h3 class="text-white mb-0">Health Services</h3>
+            </div>
+            <div class="table-responsive">
+              <table class="table align-items-center table-dark table-flush">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col" class="sort" data-sort="name">Institute Name</th>
+                    <th scope="col" class="sort" data-sort="budget">Province </th>
+                    <th scope="col" class="sort" data-sort="status">Capacity</th>
+                    <th scope="col" class="sort" data-sort="completion">Contact</th>
+                    
+                  </tr>
+                </thead>
+                <tbody class="list">
+                  <tr>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                          <span class="name mb-0 text-sm">Queen of Peace</span>
+                        </div>
+                      </div>
+                    </th>
+                    <td class="budget">
+                      Harare
+                    </td>
+                    <td>
+                      <span class="badge badge-dot mr-4">
+                        <i class="bg-warning"></i>
+                        <span class="status">pending</span>
+                      </span>
+                    </td>
+
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <span class="completion mr-2">0783 481 766</span>
+                        <div>
+                          
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endblock %}

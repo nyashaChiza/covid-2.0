@@ -1,0 +1,44 @@
+{% extends "layouts/layout.html" %}
+{% block content %}
+    <!-- Header -->
+    <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url({{url_for('static',filename='assets/img/theme/profile-cover.jpg')}}); background-size: cover; background-position: center top;">
+      <!-- Mask -->
+      <span class="mask bg-gradient-default opacity-8"></span>
+      <!-- Header container -->
+      <div class="container-fluid d-flex align-items-center">
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <h1 class="display-1 text-white">Covid Test</h1>
+            <p class="text-white mt-0 mb-9">This is a standard WHO Test.</p>
+               </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+      <div class="row">
+
+        <div class="col-xl-8 order-xl-1">
+          <div class="card">
+            <div class="card-header">
+              <div class="row align-items-center">
+                <div class="col-4 text-right">
+                  <a href="#!" class="btn btn-sm btn-primary">Chat With Us</a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <button class="btn btn-outline-primary" type="button" id="button-addon1">Send</button>
+                    </div>
+                    <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                  </div>
+                </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endblock %}

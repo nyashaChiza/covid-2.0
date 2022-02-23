@@ -1,0 +1,244 @@
+{% extends "layouts/layout.html" %}
+{% block content %}
+    <!-- Header -->
+    <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url({{url_for('static',filename='assets/img/theme/profile-cover.jpg')}}); background-size: cover; background-position: center top;">
+      <!-- Mask -->
+      <span class="mask bg-gradient-default opacity-8"></span>
+      <!-- Header container -->
+      <div class="container-fluid d-flex align-items-center">
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <h1 class="display-1 text-white">Covid  Self Assessment Test</h1>
+            <p class="text-white mt-0 mb-9">This is a standard WHO Test.</p>
+               </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+      <div class="row">
+
+        <div class="col-xl-10 order-xl-1">
+          <div class="card">
+            <div class="card-header">
+              <div class="row align-items-center">
+                <div class="col-4 text-right">
+                  <a href="#!" class="btn btn-sm btn-primary">Answer All Questions</a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form method ='POST' action = "{{url_for('test')}}">
+                <h6 class="heading-small text-muted mb-4">User information</h6>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Fever (100.4° F/37.8° C or greater as measured by an oral thermometer) </label>
+                        <div class="form-group">
+                          <div class="input-group input-group-merge input-group-alternative mb-3">
+                           <select class="form-control" name='fever1'>
+                             <option value="2">Yes</option>
+                             <option value="0">No</option>
+                                  </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Have you been tested for the coronavirus (awaiting results)? If yes, stay
+                          home until results are received </label>
+                        <div class="form-group">
+                          <div class="input-group input-group-merge input-group-alternative mb-3">
+                           <select class="form-control" name='fever2'>
+                             <option value="2">Yes</option>
+                             <option value="1">No</option>
+                                  </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="my-4" />
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Have you tested POSITIVE for the coronavirus? If yes, stay home for 14
+                          days after symptoms are gone </label>
+                        <div class="form-group">
+                          <div class="input-group input-group-merge input-group-alternative mb-3">
+                           <select class="form-control" name='fever3'>
+                             <option value="4">Yes</option>
+                             <option value="1">No</option>
+                                  </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="my-4" />
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Have you had prolonged close contact with someone who tested
+                          positive for the coronavirus? If Yes, stay home for 14 days and return
+                          to work if no symptoms. </label>
+                        <div class="form-group">
+                          <div class="input-group input-group-merge input-group-alternative mb-3">
+                           <select class="form-control" name='fever4'>
+                             <option value="3">Yes</option>
+                             <option value="1">No</option>
+                                  </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="my-4" />
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Has a member of your household been tested for the coronavirus
+                          (awaiting results)? If Yes, stay home until results are received. </label>
+                        <div class="form-group">
+                          <div class="input-group input-group-merge input-group-alternative mb-3">
+                           <select class="form-control" name='fever5'>
+                             <option value="3">Yes</option>
+                             <option value="1">No</option>
+                                  </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="my-4" />
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Has a member of your household been asked by a medical professional
+                          to isolate for potential coronavirus? If Yes, stay home pending results. </label>
+                        <div class="form-group">
+                          <div class="input-group input-group-merge input-group-alternative mb-3">
+                           <select class="form-control" name='fever6'>
+                             <option value="2">Yes</option>
+                             <option value="1">No</option>
+                                  </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="my-4" />
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Has a household member had prolonged close contact with someone
+                          who tested positive for the coronavirus? If Yes, stay home for 14 days and
+                          return to work if there are NO symptoms. </label>
+                        <div class="form-group">
+                          <div class="input-group input-group-merge input-group-alternative mb-3">
+                           <select class="form-control" name='fever7'>
+                             <option value="3">Yes</option>
+                             <option value="1">No</option>
+                                  </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="my-4" />
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Have you traveled out of the country within the last 14 days? If Yes, stay
+                          home for 14 days from your arrival back to the United States. Return to
+                          work if there are no symptoms </label>
+                        <div class="form-group">
+                          <div class="input-group input-group-merge input-group-alternative mb-3">
+                           <select class="form-control" name='fever8'>
+                             <option value="3">Yes</option>
+                             <option value="1">No</option>
+                                  </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="my-4" />
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Have you taken a cruise within the last 14 days? If Yes, stay home for 14
+                          days from your arrival back to the United States. Return to work if there
+                          are no symptoms. </label>
+                        <div class="form-group">
+                          <div class="input-group input-group-merge input-group-alternative mb-3">
+                           <select class="form-control" name='fever9'>
+                             <option value="3">Yes</option>
+                             <option value="1">No</option>
+                                  </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="my-4" />
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Are you experiencing or have you experienced any of the following
+                          symptoms in the past 14 days? If you answer YES to at least one of these
+                          questions, please stay home and call your healthcare provider. </label>
+                        <div class="form-group">
+                          <div class="input-group input-group-merge input-group-alternative mb-3">
+                           <select class="form-control" name='fever10'>
+                             <option value="3">Yes</option>
+                             <option value="1">No</option>
+                                  </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="my-4" />
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Cough (not related to allergies) </label>
+                        <div class="form-group">
+                          <div class="input-group input-group-merge input-group-alternative mb-3">
+                           <select class="form-control" name='fever11'>
+                             <option value="2">Yes</option>
+                             <option value="1">No</option>
+                                  </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                   
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-first-name">City</label>
+                        <input type="text" id="input-first-name" name= 'city' class="form-control" placeholder="City" >
+                      </div>
+                    </div>
+                    <hr class="my-4" />
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Province </label>
+                        <div class="form-group">
+                          <div class="input-group input-group-merge input-group-alternative mb-3">
+                            <select class="form-control" name='fever2'>
+                              <option value="Harare Province">Harare Province</option>
+                              <option value="Bulawayo Province">Bulawayo Province</option>
+                              <option value="Manicaland Province">Manicaland Province</option>
+                              <option value="Mashonaland Central Province">Mashonaland Central Province</option>
+                              <option value="Mashonaland East Province">Mashonaland East Province</option>
+                              <option value="Mashonaland West Province">Mashonaland West Province</option>
+                              <option value="Masvingo Province">Masvingo Province</option>
+                              <option value="Matabeleland North Province">Matabeleland North Province</option>
+                              <option value="Matabeleland South Province">Matabeleland South Province</option>
+                              <option value="Midlands Province">Midlands Province</option>
+ 
+                             </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary mt-4 btn-group-lg">Send</button>
+                </div>
+                <hr class="my-4" />
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endblock %}

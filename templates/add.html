@@ -1,0 +1,114 @@
+{% extends "layouts/layout.html" %}
+{% block content %}
+    <!-- Header -->
+    <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url({{url_for('static',filename='assets/img/theme/profile-cover.jpg')}}); background-size: cover; background-position: center top;">
+      <!-- Mask -->
+      <span class="mask bg-gradient-default opacity-8"></span>
+      <!-- Header container -->
+      <div class="container-fluid d-flex align-items-center">
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <h1 class="display-1 text-white">Add a New Health Institute</h1>
+            <p class="text-white mt-0 mb-9">.</p>
+               </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+      <div class="row">
+
+        <div class="col-xl-10 order-xl-1">
+          <div class="card">
+            <div class="card-header">
+              <div class="row align-items-center">
+                <div class="col-4 text-right">
+                 
+              </div>
+            </div>
+            <div class="card-body">
+              <form method ='POST' action = "{{url_for('add')}}">
+                <h6 class="heading-small text-muted mb-4">Insitute information</h6>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-lg-9 ">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Health Institute Name </label>
+                        <div class="form-group">
+                          <div class="input-group input-group-merge input-group-alternative mb-3">
+                          <input type="text" class="form-control" name= 'name'>
+                           
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-9">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Province</label>
+                        <div class="form-group">
+                          <div class="input-group input-group-merge input-group-alternative mb-3">
+                           <select class="form-control" name='province'>
+                             <option value="Harare Province">Harare Province</option>
+                             <option value="Bulawayo Province">Bulawayo Province</option>
+                             <option value="Manicaland Province">Manicaland Province</option>
+                             <option value="Mashonaland Central Province">Mashonaland Central Province</option>
+                             <option value="Mashonaland East Province">Mashonaland East Province</option>
+                             <option value="Mashonaland West Province">Mashonaland West Province</option>
+                             <option value="Masvingo Province">Masvingo Province</option>
+                             <option value="Matabeleland North Province">Matabeleland North Province</option>
+                             <option value="Matabeleland South Province">Matabeleland South Province</option>
+                             <option value="Midlands Province">Midlands Province</option>
+
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="my-4" />
+                    <div class="col-lg-9">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">City</label>
+                        <div class="form-group">
+                          <div class="input-group input-group-merge input-group-alternative mb-3">
+                            <input type="text" class="form-control" name= 'city'>
+                       
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="my-4" />
+                    <div class="col-lg-9">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Contact</label>
+                        <div class="form-group">
+                          <div class="input-group input-group-merge input-group-alternative mb-3">
+                            <input type="text" class="form-control" name= 'contact'>
+                       
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="my-4" />
+                    <div class="col-lg-9">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Capacity</label>
+                        <div class="form-group">
+                          <div class="input-group input-group-merge input-group-alternative mb-3">
+                            <input type="number" class="form-control" name= 'capacity'>
+                       
+                          </div>
+                        </div>
+                      </div>
+                                  <div class="text-center">
+                  <button type="submit" class="btn btn-primary mt-8 btn-group-lg">Save Information</button>
+                </div>
+                <hr class="my-4" />
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+      {% endblock %}
