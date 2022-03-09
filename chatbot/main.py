@@ -1,5 +1,5 @@
 import re
-import long_responses as long
+import chatbot.long_responses as long
 
 
 def message_probability(user_message, recognised_words, single_response=False, required_words=[]):
@@ -45,14 +45,14 @@ def check_all_messages(message):
 
 
     # Longer responses
-    response(long.WHY_WEAR_MASKS, ['why',' should','people', ' wear', ' mask'], required_words=['wear', 'mask','people'])
-    response(long.WHAT_KIND_OF_MASKS, ['what','kind','of ', 'of', 'mask',' should', 'the','public',' wear'], required_words=['mask', 'public','wear'])
+    response(long.WHY_WEAR_MASKS, ['why',' should','people', ' wear','masks', ' mask'], required_words=['masks','people'])
+    response(long.WHAT_KIND_OF_MASKS, ['what','kind','of ', 'of', 'mask',' should', 'the','public',' wear'], required_words=['mask', 'public'])
     response(long.WHAT_IS_COVID, ['what','is','covid','covid-19','corona','sarscov'], required_words=['what', 'is'])
     response(long.HOW_DOES_IT_SPREAD, ['how','does','the','virus','spread'], required_words=['how','virus','spread'])
     response(long.HOW_CAN_PROTECT_MYSELF, ['how','do','can','I','protect','myself'], required_words=['protect','myself'])
-    response(long.IF_I_GET_SICK, ['what','to','do','if','l','get','sick'], required_words=['I','get','sick'])
+    response(long.IF_I_GET_SICK, ['what','to','do','if','l','get','sick'], required_words=['get','sick'])
     response(long.IF_SOMEONE_GET_SICK, ['what','to','do','if','someone','gets','sick'], required_words=['someone','sick'])
-    response(long.WHAT_ARE_THE_SYMPTOMS, ['what','are','the','sympthoms'], required_words=['sympthoms'])
+    response(long.WHAT_ARE_THE_SYMPTOMS, ['what','are','the','sympthos'], required_words=['what','symptoms'])
     response(long.EMERGENCY_CARE, ['when','seek','emergency','treatment','help',], required_words=['emergency','treatment'])
 
 
@@ -70,5 +70,5 @@ def get_response(user_input):
 
 
 # Testing the response system
-while True:
-    print('Bot: ' + get_response(str(input('You: ')).lower()))
+#while True:
+ #   print('Bot: ' + get_response(str(input('You: ')).lower()))

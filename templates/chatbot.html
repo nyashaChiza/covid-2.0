@@ -15,7 +15,7 @@
       </div>
     </div>
     <!-- Page content -->
-    <div class="container-fluid mt--6">
+    <div class="container-fluid mt--6 ">
       <div class="row">
 
         <div class="col-xl-8 order-xl-1">
@@ -28,15 +28,48 @@
               </div>
             </div>
             <div class="card-body">
-              <form>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <button class="btn btn-outline-primary" type="button" id="button-addon1">Send</button>
+              <head>
+                <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='assets/css/style.css')}}">
+                <script src="{{url_for('static',filename='assets/js/jquery.min.js')}}"></script>
+              </head>
+              <body>
+             <div class="nchiza">
+                  <div id="chatbox">
+                    <p class="botText"><span>Hie! I'm The Covid Chat Assistant.</span></p>
+                  </div>
+                  <div class="input-group mb-3" id="userInput">
+                    <div class="input-group-prepend">  
+                      <input id="buttonInput" class="btn btn-outline-primary" type="submit" value="Send">     
                     </div>
-                    <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                    <input class="form-control" id="textInput" type="text" name="msg" placeholder="Message">
                   </div>
                 </div>
-            </form>
+                  <script>
+                    function getBotResponse() {
+                      var rawText = $("#textInput").val();
+                      var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
+                      $("#textInput").val("");
+                      $("#chatbox").append(userHtml);
+                      document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+                      $.get("/get", { msg: rawText }).done(function(data) {
+                        var botHtml = '<p class="botText"><span>' + data + '</span></p>';
+                        $("#chatbox").append(botHtml);
+                        document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+                      });
+                    }
+                    $("#textInput").keypress(function(e) {
+                        if ((e.which == 13) && document.getElementById("textInput").value != "" ){
+                            getBotResponse();
+                        }
+                    });
+                    $("#buttonInput").click(function() {
+                        if (document.getElementById("textInput").value != "") {
+                            getBotResponse();
+                        }
+                    })
+                  </script>
+                </div>
+            
             </div>
           </div>
         </div>
