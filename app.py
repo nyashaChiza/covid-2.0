@@ -1,6 +1,8 @@
-from flask import Flask, render_template, request, flash, session
+from flask import Flask, render_template, request, session
 from flask_sqlalchemy import SQLAlchemy
 from covid import Covid
+from chatbot.main import get_response
+
 
 #-----------------------------------------------------------------------
 app = Flask(__name__)
@@ -25,6 +27,7 @@ class Institutions(db.Model):
     city  = db.Column(db.String(50))
     capacity = db.Column(db.Integer)
     contact =  db.Column(db.String(50))
+    address = db.Column(db.String(150))
 #-----------------------------------------------------------------------
 def process(data):
     total = 0
@@ -105,11 +108,18 @@ def test():
     template = 'profile.html'
     return render_template(template,user=session['user'])
 #-----------------------------------------------------------------------
+@app.route("/get")
+def get_bot_response():
+    userText = request.args.get('msg')
+    print(userText)
+    return str(get_response(userText))
+#-----------------------------------------------------------------------
+
 @app.route("/add", methods = ['POST','GET'])
 def add():
     if request.method =='POST':
         data = request.form.to_dict()
-        hospital = Institutions(name=data.get('name'),province=data.get('province'), contact = data.get('contact'), city = data.get('city'), capacity= data.get('capacity'))
+        hospital = Institutions(name=data.get('name'),province=data.get('province'), contact = data.get('contact'), city = data.get('city'), capacity= data.get('capacity'), address= data.get('address'))
         db.session.add(hospital)
         db.session.commit()
         return health()

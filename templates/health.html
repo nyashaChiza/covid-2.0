@@ -37,7 +37,7 @@
                     <th scope="col" class="sort" data-sort="name">Institute Name</th>
                     <th scope="col" class="sort" data-sort="budget">Province </th>
                     <th scope="col" class="sort" data-sort="budget">City</th>
-                    <th scope="col" class="sort" data-sort="status">Capacity</th>
+                    <th scope="col" class="sort" data-sort="status">Address</th>
                     <th scope="col" class="sort" data-sort="completion">Number</th>
                     
                   </tr>
@@ -59,14 +59,8 @@
                       {{x.city}}
                     </td>
                     <td>
-                      {% if x.capacity > 70 %}
-                      <span class="badge badge-dot mr-4">
-                        <i class="bg-warning"></i>
-                        <span class="status">pending</span>
+                        <span class="status">{{x.address}}</span>
                       </span>
-                      {% elif x.capacity < 70 %}
-                      {{x.capacity}}
-                      {% endif %}
                     </td>
                     <td>
                       <div class="d-flex align-items-center">
