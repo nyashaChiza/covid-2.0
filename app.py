@@ -2,13 +2,15 @@ from flask import Flask, render_template, request, session
 from flask_sqlalchemy import SQLAlchemy
 from covid import Covid
 from chatbot.main import get_response
+from loguru import logger
+
 
 
 #-----------------------------------------------------------------------
 app = Flask(__name__)
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.secret_key = 'secret string'
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///database.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///database.sql"
 db = SQLAlchemy(app)
 #-----------------------------------------------------------------------
 class Users(db.Model):
@@ -74,6 +76,7 @@ def index():
 def sign_up():
     if request.method == 'POST':
         data = request.form.to_dict()
+        logger.debug(data)
         user = Users(email = data.get('email'),password = data.get('password'),name = data.get('name'),surname = data.get('surname'),initial = data.get('initial'))
         try:
             db.session.add(user)
@@ -81,9 +84,9 @@ def sign_up():
             session['msg'] = 'as'
             return index()
         except  Exception as e:
-            print(e)
+            logger.error(str(e))
             session['msg'] = 'af'
-            return sign_up()
+            
             
     template = 'register.html'
     return render_template(template)
